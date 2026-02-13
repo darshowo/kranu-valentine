@@ -1,0 +1,2168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For My Kranu - Happy Valentine's Day ❤️</title>
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;600&display=swap');
+    
+    :root {
+        --bg-gradient-1: #667eea;
+        --bg-gradient-2: #764ba2;
+        --final-gradient-1: #f093fb;
+        --final-gradient-2: #f5576c;
+        --text-color: white;
+        --card-bg: rgba(255,255,255,0.15);
+        --card-border: rgba(255,255,255,0.3);
+        --card-hover-bg: rgba(255,255,255,0.25);
+        --heading-color: #FFE5F1;
+        --overlay-bg: rgba(0,0,0,0.8);
+        --love-bg-opacity: 0.04;
+        --photo-frame-bg: white;
+        --meme-box-bg: white;
+        --promise-bg: rgba(255,182,193,0.3);
+    }
+    
+    [data-theme="dark"] {
+        --bg-gradient-1: #1a1a2e;
+        --bg-gradient-2: #16213e;
+        --final-gradient-1: #2d1f3d;
+        --final-gradient-2: #1a1a2e;
+        --text-color: #e0e0e0;
+        --card-bg: rgba(255,255,255,0.08);
+        --card-border: rgba(255,255,255,0.15);
+        --card-hover-bg: rgba(255,255,255,0.12);
+        --heading-color: #ffb6c1;
+        --overlay-bg: rgba(0,0,0,0.9);
+        --love-bg-opacity: 0.03;
+        --photo-frame-bg: #2a2a3e;
+        --meme-box-bg: #2a2a3e;
+        --promise-bg: rgba(255,182,193,0.15);
+    }
+    
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+    
+    html {
+        scroll-behavior: smooth;
+    }
+    
+    body {
+        font-family: 'Poppins', sans-serif;
+        background: linear-gradient(135deg, var(--bg-gradient-1) 0%, var(--bg-gradient-2) 100%);
+        color: var(--text-color);
+        overflow-x: hidden;
+        font-size: 1.1rem;
+        line-height: 1.6;
+        transition: background 0.5s ease, color 0.3s ease;
+        position: relative;
+    }
+
+    .theme-toggle {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        z-index: 10000;
+        background: var(--card-bg);
+        border: 2px solid var(--card-border);
+        border-radius: 50px;
+        padding: 10px 15px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-family: 'Poppins', sans-serif;
+        font-size: 0.9rem;
+        color: var(--text-color);
+        backdrop-filter: blur(10px);
+        transition: all 0.3s ease;
+    }
+    
+    .theme-toggle:hover {
+        background: var(--card-hover-bg);
+        transform: scale(1.05);
+    }
+    
+    .theme-toggle .icon {
+        font-size: 1.2rem;
+        transition: transform 0.3s ease;
+    }
+    
+    .theme-toggle:hover .icon {
+        transform: rotate(20deg);
+    }
+    
+    .theme-toggle .label {
+        display: none;
+    }
+    
+    @media (min-width: 768px) {
+        .theme-toggle .label {
+            display: inline;
+        }
+    }
+
+    .ladder-wrapper {
+        position: fixed;
+        right: 15px;
+        top: 0;
+        width: 60px;
+        height: 100vh;
+        z-index: 100;
+        pointer-events: none;
+    }
+    
+    .ladder {
+        position: absolute;
+        top: 0;
+        right: 10px;
+        width: 45px;
+        height: 100%;
+    }
+    
+    .ladder-rail {
+        position: absolute;
+        top: 0;
+        width: 8px;
+        height: 100%;
+        background: linear-gradient(180deg, 
+            #8B4513 0%, 
+            #A0522D 20%, 
+            #8B4513 40%,
+            #A0522D 60%,
+            #8B4513 80%,
+            #A0522D 100%
+        );
+        border-radius: 4px;
+        box-shadow: 
+            inset -2px 0 4px rgba(0,0,0,0.3),
+            2px 0 8px rgba(0,0,0,0.2);
+    }
+    
+    .ladder-rail.left { left: 0; }
+    .ladder-rail.right { right: 0; }
+    
+    .ladder-rungs {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .rung {
+        position: absolute;
+        left: 5px;
+        width: 35px;
+        height: 8px;
+        background: linear-gradient(180deg, #DEB887, #D2691E, #A0522D);
+        border-radius: 4px;
+        box-shadow: 
+            0 3px 6px rgba(0,0,0,0.3),
+            inset 0 2px 2px rgba(255,255,255,0.2);
+    }
+    
+    .dog-character {
+        position: fixed;
+        right: 55px;
+        top: 50px;
+        cursor: grab;
+        pointer-events: auto;
+        z-index: 101;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .dog-character:active {
+        cursor: grabbing;
+    }
+    
+    .dog-character.dragging {
+        cursor: grabbing;
+    }
+    
+    .dog-emoji {
+        font-size: 3rem;
+        filter: drop-shadow(2px 3px 4px rgba(0,0,0,0.3));
+        transition: transform 0.2s ease;
+    }
+    
+    .dog-character:hover .dog-emoji {
+        transform: scale(1.1);
+    }
+    
+    .dog-character.dragging .dog-emoji {
+        transform: scale(1.15);
+        animation: dogWiggle 0.2s ease infinite;
+    }
+    
+    @keyframes dogWiggle {
+        0%, 100% { transform: scale(1.15) rotate(-5deg); }
+        50% { transform: scale(1.15) rotate(5deg); }
+    }
+    
+    .dog-character.happy .dog-emoji { animation: happyBounce 0.5s ease infinite; }
+    .dog-character.excited .dog-emoji { animation: excitedShake 0.2s ease infinite; }
+    .dog-character.sad .dog-emoji { transform: scale(0.9); }
+    .dog-character.love .dog-emoji { animation: lovePulse 0.6s ease infinite; }
+    
+    @keyframes happyBounce {
+        0%, 100% { transform: translateY(0) rotate(-5deg); }
+        50% { transform: translateY(-8px) rotate(5deg); }
+    }
+    
+    @keyframes excitedShake {
+        0%, 100% { transform: rotate(-10deg); }
+        50% { transform: rotate(10deg); }
+    }
+    
+    @keyframes lovePulse {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.15); }
+    }
+    
+    .dog-expression {
+        position: absolute;
+        top: -25px;
+        font-size: 1.5rem;
+        opacity: 0;
+        transition: all 0.3s ease;
+        z-index: 10;
+    }
+    
+    .dog-expression.show {
+        opacity: 1;
+        animation: expressionPop 0.5s ease;
+    }
+    
+    @keyframes expressionPop {
+        0% { transform: scale(0) translateY(10px); opacity: 0; }
+        50% { transform: scale(1.3) translateY(-5px); }
+        100% { transform: scale(1) translateY(0); opacity: 1; }
+    }
+    
+    .dog-hearts {
+        position: absolute;
+        top: -30px;
+        display: flex;
+        gap: 5px;
+        opacity: 0;
+        pointer-events: none;
+        z-index: 10;
+    }
+    
+    .dog-hearts.show {
+        opacity: 1;
+    }
+    
+    .dog-hearts span {
+        animation: floatHeart 1.2s ease-out forwards;
+        font-size: 1.2rem;
+    }
+    
+    .dog-hearts span:nth-child(1) { animation-delay: 0s; }
+    .dog-hearts span:nth-child(2) { animation-delay: 0.15s; }
+    .dog-hearts span:nth-child(3) { animation-delay: 0.3s; }
+    
+    @keyframes floatHeart {
+        0% { transform: translateY(0) scale(0); opacity: 1; }
+        50% { transform: translateY(-25px) scale(1.3); opacity: 1; }
+        100% { transform: translateY(-50px) scale(0.8); opacity: 0; }
+    }
+    
+    .dog-blush {
+        position: absolute;
+        top: 18px;
+        display: flex;
+        gap: 30px;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        pointer-events: none;
+        z-index: 5;
+    }
+    
+    .dog-blush.show {
+        opacity: 1;
+    }
+    
+    .dog-blush span {
+        font-size: 0.5rem;
+        color: #ff6b9d;
+    }
+    
+    .dog-speech {
+        position: absolute;
+        right: 60px;
+        top: 5px;
+        background: white;
+        color: #333;
+        padding: 10px 15px;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        font-family: 'Poppins', sans-serif;
+        white-space: nowrap;
+        opacity: 0;
+        transform: scale(0);
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        z-index: 10;
+    }
+    
+    .dog-speech::after {
+        content: '';
+        position: absolute;
+        right: -10px;
+        top: 50%;
+        transform: translateY(-50%);
+        border: 10px solid transparent;
+        border-left-color: white;
+    }
+    
+    .dog-speech.show {
+        opacity: 1;
+        transform: scale(1);
+    }
+    
+    .drag-hint {
+        position: absolute;
+        bottom: -30px;
+        font-size: 0.7rem;
+        color: rgba(255,255,255,0.7);
+        white-space: nowrap;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        font-family: 'Poppins', sans-serif;
+    }
+    
+    .dog-character:hover .drag-hint {
+        opacity: 1;
+    }
+    
+    .dog-character.dragging .drag-hint {
+        opacity: 0;
+    }
+    
+    @media (max-width: 550px) {
+        .ladder-wrapper {
+            display: none;
+        }
+        .dog-character {
+            display: none;
+        }
+    }
+
+    .bg-love {
+        position: fixed;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        transform: rotate(-15deg);
+        font-family: 'Poppins', sans-serif;
+        font-size: 1.3rem;
+        font-weight: 300;
+        font-style: italic;
+        line-height: 2.5;
+        color: rgba(255, 255, 255, var(--love-bg-opacity));
+        white-space: pre-wrap;
+        word-wrap: break-word;
+        z-index: 0;
+        pointer-events: none;
+        overflow: hidden;
+        transition: color 0.5s ease;
+    }
+
+    .hero, .section, .final-message, .heart, .hug-overlay, .kiss-overlay {
+        position: relative;
+        z-index: 1;
+    }
+    
+    h1, h2 {
+        font-family: 'Playfair Display', serif;
+        font-weight: 700;
+        letter-spacing: 1px;
+    }
+    
+    .date-badge {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 1.1rem;
+        letter-spacing: 0.5px;
+        font-weight: 400;
+    }
+    
+    .promise-item, .reason-card {
+        font-family: 'Poppins', sans-serif;
+        font-size: 1.1rem;
+        letter-spacing: 0px;
+        font-weight: 400;
+    }
+    
+    .letter-box {
+        font-family: 'Poppins', sans-serif;
+        font-size: 1.1rem;
+        font-weight: 400;
+        line-height: 1.8;
+    }
+    
+    .letter-box p {
+        line-height: 1.8;
+        margin-bottom: 20px;
+    }
+    
+    .heart {
+        position: fixed;
+        font-size: 20px;
+        animation: float 10s infinite;
+        z-index: 2;
+    }
+    
+    @keyframes float {
+        0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+        10% { opacity: 1; }
+        90% { opacity: 1; }
+        100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+    }
+    
+    .hero {
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        position: relative;
+        background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff22" fill-opacity="1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,112C960,128,1056,160,1152,160C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat bottom;
+        background-size: cover;
+    }
+    
+    .hero h1 {
+        font-size: 4rem;
+        margin-bottom: 20px;
+        animation: fadeInUp 1s ease;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        font-weight: 700;
+    }
+    
+    .hero p {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 1.3rem;
+        animation: fadeInUp 1.5s ease;
+        max-width: 600px;
+        padding: 0 20px;
+        font-weight: 300;
+    }
+    
+    .date-badge {
+        background: var(--card-bg);
+        padding: 12px 24px;
+        border-radius: 50px;
+        margin-top: 20px;
+        animation: pulse 2s infinite;
+        border: 1px solid var(--card-border);
+    }
+    
+    @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+        100% { transform: scale(1); }
+    }
+    
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    
+    .section {
+        padding: 80px 20px;
+        max-width: 800px;
+        margin: 0 auto;
+        text-align: center;
+    }
+    
+    .section h2 {
+        font-size: 3rem;
+        margin-bottom: 30px;
+        color: var(--heading-color);
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    }
+    
+    .section p {
+        font-family: 'Poppins', sans-serif;
+        font-size: 1.1rem;
+        font-weight: 300;
+    }
+    
+    .letter-box {
+        background: var(--card-bg);
+        backdrop-filter: blur(10px);
+        padding: 40px;
+        border-radius: 20px;
+        margin: 40px 0;
+        border: 2px solid var(--card-border);
+        animation: fadeIn 2s ease;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        text-align: left;
+    }
+    
+    .countdown {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        margin: 40px 0;
+        flex-wrap: wrap;
+    }
+    
+    .time-box {
+        background: var(--card-bg);
+        padding: 25px;
+        border-radius: 15px;
+        min-width: 110px;
+        font-family: 'Montserrat', sans-serif;
+        border: 1px solid var(--card-border);
+    }
+    
+    .time-box .number {
+        font-size: 2.5rem;
+        font-weight: 700;
+        font-family: 'Playfair Display', serif;
+    }
+    
+    .time-box .label {
+        font-size: 1rem;
+        opacity: 0.9;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 300;
+        margin-top: 5px;
+    }
+    
+    .reasons {
+        display: grid;
+        gap: 20px;
+        margin: 40px 0;
+    }
+    
+    .reason-card {
+        background: linear-gradient(135deg, var(--card-bg), rgba(255,255,255,0.05));
+        padding: 25px;
+        border-radius: 15px;
+        transform: translateX(0);
+        transition: all 0.3s ease;
+        cursor: pointer;
+        text-align: left;
+        border: 1px solid var(--card-border);
+    }
+    
+    .reason-card:hover {
+        transform: translateX(10px);
+        background: linear-gradient(135deg, var(--card-hover-bg), rgba(255,255,255,0.1));
+    }
+    
+    .reason-number {
+        display: inline-block;
+        background: rgba(255,255,255,0.4);
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+        line-height: 35px;
+        margin-right: 15px;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 1rem;
+        font-weight: 700;
+        text-align: center;
+        color: #333;
+    }
+    
+    [data-theme="dark"] .reason-number {
+        background: rgba(255,182,193,0.5);
+        color: #fff;
+    }
+    
+    .gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        margin: 40px 0;
+    }
+
+    .photo-frame {
+        background: var(--photo-frame-bg);
+        padding: 10px;
+        border-radius: 10px;
+        transform: rotate(-2deg);
+        transition: all 0.3s ease;
+        cursor: pointer;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        overflow: hidden;
+        aspect-ratio: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .photo-frame:nth-child(even) {
+        transform: rotate(2deg);
+    }
+
+    .photo-frame:hover {
+        transform: rotate(0deg) scale(1.1);
+        z-index: 10;
+    }
+
+    .photo-frame img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 5px;
+    }
+
+    .vinyl-player-section {
+        background: linear-gradient(135deg, rgba(0,0,0,0.3), rgba(0,0,0,0.1));
+        border-radius: 30px;
+        padding: 40px 30px;
+        margin: 40px 0;
+        border: 1px solid var(--card-border);
+        backdrop-filter: blur(10px);
+    }
+
+    .vinyl-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .vinyl-wrapper {
+        position: relative;
+        width: 280px;
+        height: 280px;
+    }
+
+    .vinyl-record {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background: 
+            radial-gradient(circle at center, #222 0%, #222 15%, transparent 15.5%),
+            radial-gradient(circle at center, #111 30%, transparent 30.5%),
+            repeating-radial-gradient(
+                circle at center,
+                #1a1a1a 0px,
+                #1a1a1a 2px,
+                #222 2px,
+                #222 4px
+            );
+        box-shadow: 
+            0 0 0 8px #111,
+            0 0 0 10px #333,
+            0 20px 40px rgba(0,0,0,0.5),
+            inset 0 0 30px rgba(0,0,0,0.5);
+        position: relative;
+    }
+
+    .vinyl-record::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 40%;
+        height: 40%;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #ff6b9d, #ff8fab);
+        box-shadow: inset 0 0 20px rgba(0,0,0,0.3);
+    }
+
+    .vinyl-record::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 8%;
+        height: 8%;
+        border-radius: 50%;
+        background: #111;
+        box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
+
+    .album-art {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 38%;
+        height: 38%;
+        border-radius: 50%;
+        object-fit: cover;
+        box-shadow: inset 0 0 20px rgba(0,0,0,0.3);
+        z-index: 1;
+    }
+
+    .vinyl-record.spinning {
+        animation: spinVinyl 3s linear infinite;
+    }
+
+    @keyframes spinVinyl {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+    }
+
+    .vinyl-arm {
+        position: absolute;
+        top: -10px;
+        right: -30px;
+        width: 120px;
+        height: 20px;
+        background: linear-gradient(90deg, #444, #666, #444);
+        border-radius: 10px;
+        transform-origin: right center;
+        transform: rotate(-30deg);
+        transition: transform 0.5s ease;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        z-index: 10;
+    }
+
+    .vinyl-arm::before {
+        content: '';
+        position: absolute;
+        right: -15px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 30px;
+        height: 30px;
+        background: radial-gradient(circle, #888, #444);
+        border-radius: 50%;
+        box-shadow: 0 3px 10px rgba(0,0,0,0.3);
+    }
+
+    .vinyl-arm::after {
+        content: '';
+        position: absolute;
+        left: -5px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 15px;
+        height: 8px;
+        background: #999;
+        border-radius: 2px;
+    }
+
+    .vinyl-arm.playing {
+        transform: rotate(-5deg);
+    }
+
+    .song-info-vinyl {
+        text-align: center;
+    }
+
+    .song-title-vinyl {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.8rem;
+        font-weight: 700;
+        margin-bottom: 5px;
+    }
+
+    .song-artist-vinyl {
+        font-family: 'Poppins', sans-serif;
+        font-size: 1.1rem;
+        opacity: 0.8;
+    }
+
+    .song-memory {
+        font-family: 'Poppins', sans-serif;
+        font-size: 0.95rem;
+        font-style: italic;
+        opacity: 0.6;
+        margin-top: 5px;
+    }
+
+    .player-controls {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .control-btn {
+        background: var(--card-bg);
+        border: 2px solid var(--card-border);
+        color: var(--text-color);
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        font-size: 1.3rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .control-btn:hover {
+        background: var(--card-hover-bg);
+        transform: scale(1.1);
+    }
+
+    .control-btn.play-pause {
+        width: 70px;
+        height: 70px;
+        font-size: 1.8rem;
+        background: linear-gradient(135deg, #ff6b9d, #ff8fab);
+        border: none;
+        box-shadow: 0 5px 25px rgba(255,107,157,0.4);
+    }
+
+    .control-btn.play-pause:hover {
+        box-shadow: 0 8px 35px rgba(255,107,157,0.6);
+    }
+
+    .progress-container {
+        width: 100%;
+        max-width: 400px;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .time-display {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 0.85rem;
+        opacity: 0.8;
+        min-width: 45px;
+    }
+
+    .progress-bar {
+        flex: 1;
+        height: 6px;
+        background: rgba(255,255,255,0.2);
+        border-radius: 3px;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .progress-fill {
+        height: 100%;
+        background: linear-gradient(90deg, #ff6b9d, #ff8fab);
+        border-radius: 3px;
+        width: 0%;
+        transition: width 0.1s linear;
+    }
+
+    .progress-bar:hover .progress-fill {
+        background: linear-gradient(90deg, #ff8fab, #ffb6c1);
+    }
+
+    .volume-container {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .volume-icon {
+        font-size: 1.2rem;
+        cursor: pointer;
+    }
+
+    .volume-slider {
+        width: 80px;
+        height: 5px;
+        -webkit-appearance: none;
+        appearance: none;
+        background: rgba(255,255,255,0.2);
+        border-radius: 3px;
+        cursor: pointer;
+    }
+
+    .volume-slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 15px;
+        height: 15px;
+        background: #ff6b9d;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+
+    .song-selector {
+        display: flex;
+        gap: 15px;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 20px;
+    }
+
+    .song-select-btn {
+        background: var(--card-bg);
+        border: 2px solid var(--card-border);
+        color: var(--text-color);
+        padding: 10px 20px;
+        border-radius: 25px;
+        font-family: 'Poppins', sans-serif;
+        font-size: 0.9rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .song-select-btn:hover {
+        background: var(--card-hover-bg);
+        transform: translateY(-2px);
+    }
+
+    .song-select-btn.active {
+        background: linear-gradient(135deg, #ff6b9d, #ff8fab);
+        border-color: transparent;
+        box-shadow: 0 5px 20px rgba(255,107,157,0.4);
+    }
+
+    .lyrics-container {
+        background: var(--card-bg);
+        border-radius: 20px;
+        padding: 30px;
+        margin-top: 30px;
+        max-height: 350px;
+        overflow-y: auto;
+        border: 1px solid var(--card-border);
+        scroll-behavior: smooth;
+    }
+
+    .lyrics-container::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    .lyrics-container::-webkit-scrollbar-track {
+        background: rgba(255,255,255,0.1);
+        border-radius: 4px;
+    }
+
+    .lyrics-container::-webkit-scrollbar-thumb {
+        background: rgba(255,255,255,0.3);
+        border-radius: 4px;
+    }
+
+    .lyrics-title {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.3rem;
+        text-align: center;
+        margin-bottom: 20px;
+        opacity: 0.9;
+    }
+
+    .lyrics-content {
+        text-align: center;
+    }
+
+    .lyric-line {
+        font-family: 'Poppins', sans-serif;
+        font-size: 1.1rem;
+        padding: 12px 15px;
+        margin: 5px 0;
+        border-radius: 10px;
+        transition: all 0.4s ease;
+        opacity: 0.4;
+        cursor: pointer;
+    }
+
+    .lyric-line:hover {
+        opacity: 0.6;
+        background: rgba(255,255,255,0.05);
+    }
+
+    .lyric-line.active {
+        opacity: 1;
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: #ff6b9d;
+        background: rgba(255,107,157,0.1);
+        transform: scale(1.02);
+    }
+
+    .lyric-line.passed {
+        opacity: 0.5;
+    }
+
+    .lyric-line.upcoming {
+        opacity: 0.35;
+    }
+
+    .lyric-line.interlude {
+        font-style: italic;
+        opacity: 0.3;
+    }
+
+    .lyric-line.interlude.active {
+        opacity: 0.6;
+        color: #ffb6c1;
+        font-size: 1.2rem;
+    }
+
+    .no-lyrics {
+        text-align: center;
+        opacity: 0.5;
+        font-style: italic;
+        padding: 40px;
+    }
+
+    .lyric-line.favorite {
+        color: #ff6b9d;
+        font-weight: 500;
+    }
+
+    .lyric-line.favorite.active {
+        color: #ff1493;
+        font-size: 1.5rem;
+        font-weight: 700;
+        background: linear-gradient(135deg, rgba(255,20,147,0.2), rgba(255,107,157,0.1));
+        text-shadow: 0 0 10px rgba(255,20,147,0.5);
+        animation: favoritePulse 0.5s ease infinite;
+    }
+
+    @keyframes favoritePulse {
+        0%, 100% { transform: scale(1.02); }
+        50% { transform: scale(1.05); }
+    }
+
+    .promises {
+        background: linear-gradient(135deg, var(--promise-bg), var(--card-bg));
+        padding: 40px;
+        border-radius: 20px;
+        margin: 40px 0;
+        border: 1px solid var(--card-border);
+    }
+    
+    .promise-item {
+        margin: 20px 0;
+        padding: 20px;
+        background: var(--card-bg);
+        border-radius: 10px;
+        border-left: 4px solid var(--heading-color);
+        text-align: left;
+    }
+    
+    .meme-section {
+        background: var(--card-bg);
+        padding: 30px;
+        border-radius: 20px;
+        margin: 40px 0;
+        border: 1px solid var(--card-border);
+    }
+    
+    .meme-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        margin: 20px 0;
+    }
+    
+    .meme-box {
+        background: var(--meme-box-bg);
+        padding: 10px;
+        border-radius: 15px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        transition: all 0.3s ease;
+        cursor: pointer;
+    }
+    
+    .meme-box:hover {
+        transform: scale(1.05);
+    }
+    
+    .meme-box img {
+        width: 100%;
+        border-radius: 10px;
+        pointer-events: none;
+    }
+    
+    .final-message {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(135deg, var(--final-gradient-1) 0%, var(--final-gradient-2) 100%);
+        position: relative;
+        padding: 40px 20px;
+        transition: background 0.5s ease;
+    }
+    
+    .final-message h2 {
+        font-family: 'Playfair Display', serif;
+        font-size: 3rem;
+    }
+    
+    .big-heart {
+        font-size: 5rem;
+        animation: heartbeat 1.5s ease infinite;
+    }
+    
+    @keyframes heartbeat {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.2); }
+        100% { transform: scale(1); }
+    }
+    
+    .scroll-indicator {
+        position: absolute;
+        bottom: 30px;
+        animation: bounce 2s infinite;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 1.1rem;
+        font-weight: 300;
+    }
+    
+    @keyframes bounce {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-20px); }
+    }
+    
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    .fun-button {
+        background: var(--card-bg);
+        border: 2px solid var(--card-border);
+        color: var(--text-color);
+        padding: 15px 30px;
+        border-radius: 50px;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 1.1rem;
+        font-weight: 600;
+        cursor: pointer;
+        margin: 20px 10px;
+        transition: all 0.3s ease;
+        letter-spacing: 0.5px;
+    }
+    
+    .fun-button:hover {
+        background: white;
+        color: #764ba2;
+        transform: scale(1.1);
+    }
+
+    .kiss-btn {
+        background: linear-gradient(135deg, #ff6b9d 0%, #ff8fab 100%);
+        border: 2px solid #ff6b9d;
+    }
+    
+    .kiss-btn:hover {
+        background: white;
+        color: #ff6b9d;
+    }
+
+    .hug-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--overlay-bg);
+        display: none;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        animation: fadeIn 0.5s ease;
+    }
+
+    .hug-animation {
+        font-size: 15rem;
+        animation: hugPulse 1s ease infinite;
+    }
+
+    @keyframes hugPulse {
+        0%, 100% { transform: scale(1); }
+        50% { transform: scale(1.2); }
+    }
+
+    .kiss-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: var(--overlay-bg);
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        animation: fadeIn 0.5s ease;
+    }
+    
+    .kiss-animation {
+        font-size: 12rem;
+        animation: kissFloat 1.5s ease infinite;
+    }
+    
+    .kiss-text {
+        font-family: 'Playfair Display', serif;
+        font-size: 2.5rem;
+        margin-top: 20px;
+        color: #ff6b9d;
+        animation: pulse 1s ease infinite;
+    }
+    
+    @keyframes kissFloat {
+        0%, 100% { transform: scale(1) rotate(-5deg); }
+        50% { transform: scale(1.2) rotate(5deg); }
+    }
+
+    @keyframes floatUpKiss {
+        0% {
+            transform: translateY(0) rotate(0deg);
+            opacity: 1;
+        }
+        100% {
+            transform: translateY(-100vh) rotate(360deg);
+            opacity: 0;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .hero h1 { font-size: 2.5rem; }
+        .section h2 { font-size: 2rem; }
+        .letter-box { 
+            padding: 25px; 
+            font-size: 1rem;
+        }
+        .time-box { min-width: 80px; padding: 18px; }
+        body { font-size: 1rem; }
+        .meme-grid { grid-template-columns: 1fr; }
+        .hug-animation { font-size: 8rem; }
+        .kiss-animation { font-size: 8rem; }
+        .kiss-text { font-size: 1.8rem; }
+        .bg-love { font-size: 1rem; }
+        .theme-toggle {
+            top: 10px;
+            left: 10px;
+            padding: 8px 12px;
+        }
+        
+        .gallery {
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+        }
+        
+        .vinyl-wrapper {
+            width: 220px;
+            height: 220px;
+        }
+        
+        .vinyl-arm {
+            width: 90px;
+            right: -20px;
+        }
+        
+        .song-title-vinyl {
+            font-size: 1.4rem;
+        }
+        
+        .player-controls {
+            gap: 15px;
+        }
+        
+        .control-btn {
+            width: 45px;
+            height: 45px;
+            font-size: 1.1rem;
+        }
+        
+        .control-btn.play-pause {
+            width: 60px;
+            height: 60px;
+            font-size: 1.5rem;
+        }
+        
+        .lyric-line {
+            font-size: 1rem;
+            padding: 10px;
+        }
+        
+        .lyric-line.active {
+            font-size: 1.2rem;
+        }
+        
+        .song-selector {
+            gap: 10px;
+        }
+        
+        .song-select-btn {
+            padding: 8px 15px;
+            font-size: 0.8rem;
+        }
+    }
+    </style>
+</head>
+<body>
+    <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()">
+        <span class="icon" id="themeIcon">🌙</span>
+        <span class="label" id="themeLabel">Dark Mode</span>
+    </button>
+
+    <div class="ladder-wrapper" id="ladderWrapper">
+        <div class="ladder" id="ladder">
+            <div class="ladder-rail left"></div>
+            <div class="ladder-rail right"></div>
+            <div class="ladder-rungs" id="ladderRungs"></div>
+        </div>
+    </div>
+    
+    <div class="dog-character" id="dogCharacter">
+        <div class="dog-speech" id="dogSpeech">Woof! 🐾</div>
+        <div class="dog-hearts" id="dogHearts">
+            <span>❤️</span>
+            <span>💕</span>
+            <span>💖</span>
+        </div>
+        <div class="dog-expression" id="dogExpression"></div>
+        <div class="dog-blush" id="dogBlush">
+            <span>●</span>
+            <span>●</span>
+        </div>
+        <div class="dog-emoji" id="dogEmoji">🐕</div>
+        <div class="drag-hint">↕️ Drag me!</div>
+    </div>
+
+    <div class="bg-love" id="bgLove" aria-hidden="true"></div>
+
+    <div class="heart" style="left: 10%; animation-delay: 0s;">❤️</div>
+    <div class="heart" style="left: 30%; animation-delay: 2s;">💕</div>
+    <div class="heart" style="left: 50%; animation-delay: 4s;">💖</div>
+    <div class="heart" style="left: 70%; animation-delay: 1s;">💗</div>
+    <div class="heart" style="left: 90%; animation-delay: 3s;">💝</div>
+    <div class="heart" style="left: 25%; animation-delay: 5s;">❤️</div>
+    <div class="heart" style="left: 75%; animation-delay: 6s;">💕</div>
+
+    <div class="hug-overlay" id="hugOverlay">
+        <div class="hug-animation">🤗</div>
+    </div>
+
+    <div class="kiss-overlay" id="kissOverlay">
+        <div class="kiss-animation">💋</div>
+        <p class="kiss-text">Mwahhh!! 💕</p>
+    </div>
+
+    <div class="hero">
+        <h1>Happy Valentine's Day Kranu! ❤️</h1>
+        <p>I stayed up all night making this for you instead of studying 😊</p>
+        <div class="date-badge">
+            📅 14th February 2026 - Our First Valentine's Together!
+        </div>
+        <div class="scroll-indicator">⬇️ Keep scrolling Jannu ⬇️</div>
+    </div>
+
+    <div class="section">
+        <h2>From Your Jannu 💌</h2>
+        <div class="letter-box">
+            <p>Hey Kranu,</p>
+            
+            <p>So right now as you're reading this, I'm probably standing right next to you, watching you scroll through this with the biggest smile on my face. Or maybe you're reading this later at home, and I'm thinking about how perfect today was with you.</p>
+            
+            <p>I know Valentine's Day is supposed to be about being together, going on cute dates, doing all that romantic stuff. And even though I have my boards coming up, I just couldn't let this day go by without doing something special for you. So I stayed up all night making this website just for you. My eyes were probably red, and I was running on like 3 cups of coffee, but it was so worth it if it makes you smile.</p>
+            
+            <p>You know what, I still remember the first time I actually noticed you. It was 23rd July, the day before the workshop ended. I was having lunch with my best friend in the canteen, and I saw you sitting alone, having your lunch. I couldn't see you properly (because of my stupid eyesight) from where I was sitting and I aise hi i said that you didnt look good.</p>
+            
+            <p>And then 24th July happened. The last day of the workshop. I was playing pool with my friends, just chilling, waiting for my turn to play. The fashion workshop was having their fashion show, and I wasn't really paying attention to it at all. But then you came out of the classroom.</p>
+            
+            <p>Kranu, I swear the moment I saw you, everything else just disappeared. You were wearing that white dress with the floral patterns on top, holding that basket with flowers and books in it, wearing that flower crown and those beautiful pearl earrings. I remember standing there with the pool cue in my hand, just staring at you like an idiot. My mind literally went "omg she looks sooo beautiful."</p>
+            
+            <p>And then we made eye contact. You smiled at me as you walked past, and I swear my heart just stopped. That's the exact moment I fell for you. I wanted to go up and talk to you so badly, but I just couldn't. I was too nervous, too scared that I'd mess it up somehow.</p>
+            
+            <p>After the show ended and everyone started leaving, I told my friends to wait. I wanted to wait for you in the university lobby, hoping I'd get another chance to see you, maybe build up the courage to actually talk to you this time. I waited there for like 15 to 30 minutes, just hoping you'd come. My friends were getting restless, and one of them had to leave(vignesh) but krrish stayed. I kept thinking "if she comes, I'll talk to her, I'll do it this time," but at the same time, I had this self-doubt that even if you came, I probably wouldn't be able to say anything.</p>
+            
+            <p>But you never came. I waited and waited, and eventually, I realized you must have left already. We were getting really late, so I decided to leave too. As I was opening the door to go, I remember saying to my friend, "If it's destiny, then we will meet." I was so sad, man. I genuinely thought I'd never see you again, that I'd just missed my chance with the most beautiful girl I'd ever seen.</p>
+            
+            <p>My friend tried to cheer me up, saying "It's fine bro, there are other girls you'll meet later on." But I was like "No mannn, she was the oneeeee." The entire 2-hour journey to Burjuman, I couldn't stop talking about you. About how you looked at me and smiled, about how attractive I found you, about how cute you were.Krrish was probably so tired of hearing about you, but I couldn't help it.</p>
+            
+            <p>And then we reached Burjuman. We were hungry, so we went to the food court. Then krrish suddenly says, "Wait, aren't they from Demont!" and I got soooo happy and sooo nervous at the same time. I was literally praying that you were there with them. I asked my friend to check because I couldnt see cause of my bad eyesight. When he said "She's there," my heart started beating sooo fast, I thought it would jump out of my chest.</p>
+            
+            <p>Krrish, My Guy, he understood the assignment. He sat beside our Rayan, leaving me with the only seat, which was right beside you. I sat down, super nervous, hands probably shaking. Even while sitting beside you, I couldn't bring myself to talk to you. Krrish started talking with everyone, but I just sat there on my phone, trying to act cool but internally freaking out.</p>
+            
+            <p>And then you offered me fries and Coca-Cola from your meal. That one small gesture changed everything. I took that opportunity, said "Sure, thanks," and we started talking. And we talked and talked and made sooo much eye contact.</p>
+            
+            <p>I found out you're from Goa and Mumbai, and I'm from Goa and Mumbai. Your birthday is 10th January 2009, mine is 12th January 2009, just 2 days apart. Your favorite Bollywood actor is Hrithik Roshan, and he's mine too. Every single thing we talked about just made me realize how perfect you were for me. It felt like the universe was literally screaming at me that you were meant to be mine.</p>
+            
+            <p>Later, as everyone in the group was leaving and walking back to the metro station side of the mall, everyone went forward, walking fast. It was just you and me walking behind, just talking with each other. I remember asking you how to say a flirt line in Marathi, and you said "Jevlis ka?" I knew what it meant, I'd heard it before, but I asked anyway just to hear you say it. And when I said the same line back to you, you giggled. Kranu, that giggle... I fell in love with you right there. That sound, that smile, that moment, I knew I was done for.</p>
+            
+            <p>I waited for you and your bus to come. When it arrived, I opened my arms and we hugged. You were just smiling and I was too!, and I told you I'd text you later. That hug, that eye contact we had, I couldn't stop thinking about it the entire way home.</p>
+            
+            <p>Later when I went to the gym with krrish, I wasn't working out at all. I was just on my phone, waiting for your text. Krrish was so annoyed with me, but I didn't care. All I cared about was talking to you.</p>
+            
+            <p>We met more and more after that, went on dates, got to know each other better. And then came 19th October 2025 at 7:11 PM. We went for a movie(Which I Remember Was Sunny Sanskari Ki Tulsi Kumari, and also the place where we had our first kiss), and before that, when I went to Carrefour to get you water while you were sitting in the food court waiting for me so we could eat, I saw the flower shop and kept it in mind for later. After the movie, I told you to stay at Carrefour, ran back to the flower shop, and came back with a bouquet of pink and white lilies which are your one of, if not your most favourite flower. I tried sneaking behind you, but you saw me. So I just walked up to you, kept the bouquet in front of me, and asked you, "Will you be my girlfriend?"</p>
+            
+            <p>You were so happy and surprised, but you didn't even answer at first. You just took the flowers, and I got so scared. I asked, "So what's your answer?" and you hugged me and said yes while being shocked and super happy. After that, when we were walking around in the mall, you were speechless and expressionless. That scared me so much, but then you told me you were just so happy that you didn't even know how to express your feelings. That moment, Kranu, was the best moment of my entire life.</p>
+            
+            <p>These past few months with you have been everything to me. We fight for no reason like small children and then come back and become normal like nothing happened. There's this thing where when I say something naughty or dirty, you say "Shut Up!" in that funny way which I love soooo much. I make fun of our height difference all the time (I'm 6 feet, you're 4'11 feet(HAHA YOUR SHORT MY CUTIEEE). Every little thing about us, about you, makes me so happy.</p>
+            
+            <p>I know we recently had that big fight, and I said some things I shouldn't have. I've been thinking about it so much, and I'm genuinely sorry. But I'll talk about that more as you keep scrolling through this website.</p>
+            
+            <p>For now, I just want you to know that even though I have boards coming up, my heart is always right beside you. Every line of code on this website, every word, every animation, it's all my love for you. This isn't just a website, it's me trying to show you how much you mean to me.</p>
+            
+            <p>Keep scrolling, Jannu. I have so much more to tell you.</p>
+            
+            <p style="font-size: 1.5rem; margin-top: 30px; text-align: center;">
+                I love you more than anything in this world ❤️❤️❤️<br><br>
+                Your Jannu<br>
+                <span style="font-size: 1.2rem;">(who should definitely be studying for Physics right now but made this for you instead)</span>
+            </p>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Until I'm Finally Free 🕐</h2>
+        <p>Counting down until my boards end and I can spend all my time with you...</p>
+        <div class="countdown">
+            <div class="time-box">
+                <div class="number" id="days">00</div>
+                <div class="label">Days</div>
+            </div>
+            <div class="time-box">
+                <div class="number" id="hours">00</div>
+                <div class="label">Hours</div>
+            </div>
+            <div class="time-box">
+                <div class="number" id="minutes">00</div>
+                <div class="label">Minutes</div>
+            </div>
+            <div class="time-box">
+                <div class="number" id="seconds">00</div>
+                <div class="label">Seconds</div>
+            </div>
+        </div>
+        <p style="margin-top: 20px; opacity: 0.9;">27th March 2026 - Then I'm all yours! 😊</p>
+    </div>
+
+    <div class="section">
+        <h2>14 Things I Love About You 💕</h2>
+        <p style="opacity: 0.9; margin-bottom: 30px;">(There are way more, but these are my top 14 for Valentine's Day)</p>
+        <div class="reasons">
+            <div class="reason-card"><span class="reason-number">1</span>Your Eyes (OMGGGG I LOVEEE THEMMMM)</div>
+            <div class="reason-card"><span class="reason-number">2</span>The Way You Blush And Look Away When We Make Even The Slightest Eye Contact</div>
+            <div class="reason-card"><span class="reason-number">3</span>Your Personality (you're genuinely an amazing person)</div>
+            <div class="reason-card"><span class="reason-number">4</span>How You're An Introvert Just Like Me</div>
+            <div class="reason-card"><span class="reason-number">5</span>Your Smile (OMGGGGGGG)</div>
+            <div class="reason-card"><span class="reason-number">6</span>The Way You Pout When Taking Pictures (YOU LOOOK SOOO CUTEEEE)</div>
+            <div class="reason-card"><span class="reason-number">7</span>How You Genuinely Put In Effort And Care About Me</div>
+            <div class="reason-card"><span class="reason-number">8</span>How Cutely You Say "Hi" Or "Good Morning Jannu" When We Get On Call</div>
+            <div class="reason-card"><span class="reason-number">9</span>Your Confidence (I Love How You Carry Yourself)</div>
+            <div class="reason-card"><span class="reason-number">10</span>How Smart You Are</div>
+            <div class="reason-card"><span class="reason-number">11</span>How You Teach Me Right From Wrong (You Make Me A Better Person)</div>
+            <div class="reason-card"><span class="reason-number">12</span>That Funny/Cute Way You Say "Shut Up!" When I Tease You</div>
+            <div class="reason-card"><span class="reason-number">13</span>How You Look At Me With So Much Love</div>
+            <div class="reason-card"><span class="reason-number">14</span>Your Cute Sleepy Voice (It's Literally My Favorite Sound Ever)</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Our Favorite Moments 📸</h2>
+        <p style="opacity: 0.9; margin-bottom: 30px;">Every moment with you is special</p>
+        <div class="gallery">
+            <div class="photo-frame"><img src="https://files.catbox.moe/2wrxkw.jpeg" alt="Our Memory 1"></div>
+            <div class="photo-frame"><img src="https://files.catbox.moe/7sc1lm.jpeg" alt="Our Memory 2"></div>
+            <div class="photo-frame"><img src="https://files.catbox.moe/ntk5gb.jpeg" alt="Our Memory 3"></div>
+            <div class="photo-frame"><img src="https://files.catbox.moe/zrdd5c.jpeg" alt="Our Memory 4"></div>
+            <div class="photo-frame"><img src="https://files.catbox.moe/r4wj2c.jpeg" alt="Our Memory 5"></div>
+            <div class="photo-frame"><img src="https://files.catbox.moe/rrlxys.jpeg" alt="Our Memory 6"></div>
+            <div class="photo-frame"><img src="https://files.catbox.moe/b6akci.jpeg" alt="Our Memory 7"></div>
+            <div class="photo-frame"><img src="https://files.catbox.moe/3oe9z4.jpeg" alt="Our Memory 8"></div>
+            <div class="photo-frame"><img src="https://files.catbox.moe/6jkg8z.jpeg" alt="Our Memory 9"></div>
+            <div class="photo-frame"><img src="https://files.catbox.moe/oe0l9b.jpeg" alt="Our Memory 10"></div>
+            <div class="photo-frame"><img src="https://files.catbox.moe/1rtuqf.jpeg" alt="Our Memory 11"></div>
+            <div class="photo-frame"><img src="https://files.catbox.moe/a9csyr.jpeg" alt="Our Memory 12"></div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Our Playlist 🎵</h2>
+        <div class="vinyl-player-section">
+            <div class="vinyl-container">
+                <div class="vinyl-wrapper">
+                    <div class="vinyl-record" id="vinylRecord">
+                        <img class="album-art" id="albumArt" src="https://raw.githubusercontent.com/darshowo/kranu-valentine/main/darkhaast-cover.jpg" alt="Album Art">
+                    </div>
+                    <div class="vinyl-arm" id="vinylArm"></div>
+                </div>
+                <div class="song-info-vinyl">
+                    <div class="song-title-vinyl" id="songTitle">Darkhaast</div>
+                    <div class="song-artist-vinyl" id="songArtist">Mithoon, Arijit Singh</div>
+                    <div class="song-memory" id="songMemory">"We both love this song"</div>
+                </div>
+                <div class="player-controls">
+                    <button class="control-btn" onclick="prevSong()">⏮️</button>
+                    <button class="control-btn play-pause" id="playPauseBtn" onclick="togglePlay()">▶️</button>
+                    <button class="control-btn" onclick="nextSong()">⏭️</button>
+                </div>
+                <div class="progress-container">
+                    <span class="time-display" id="currentTime">0:00</span>
+                    <div class="progress-bar" id="progressBar" onclick="seekTo(event)">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <span class="time-display" id="totalTime">0:00</span>
+                </div>
+                <div class="volume-container">
+                    <span class="volume-icon" id="volumeIcon" onclick="toggleMute()">🔊</span>
+                    <input type="range" class="volume-slider" id="volumeSlider" min="0" max="1" step="0.1" value="0.7" onchange="changeVolume(this.value)">
+                </div>
+                <div class="song-selector">
+                    <button class="song-select-btn active" onclick="loadSong(0)">Darkhaast</button>
+                    <button class="song-select-btn" onclick="loadSong(1)">Tu Chahiye</button>
+                    <button class="song-select-btn" onclick="loadSong(2)">Sahiba</button>
+                    <button class="song-select-btn" onclick="loadSong(3)">Samjhawan</button>
+                </div>
+            </div>
+            <div class="lyrics-container" id="lyricsContainer">
+                <div class="lyrics-title">✨ Lyrics ✨</div>
+                <div class="lyrics-content" id="lyricsContent">
+                    <p class="no-lyrics">Press play to see lyrics 🎵</p>
+                </div>
+            </div>
+        </div>
+        <audio id="audioPlayer" preload="auto"></audio>
+    </div>
+
+    <div class="section">
+        <h2>Us in Memes 😂</h2>
+        <div class="meme-section">
+            <div class="meme-grid">
+                <div class="meme-box"><img src="https://i.pinimg.com/1200x/7f/54/a1/7f54a1b7cbcda5175a48f786d5d80e33.jpg" alt="Meme 1"></div>
+                <div class="meme-box"><img src="https://i.pinimg.com/1200x/bb/49/12/bb491283fa23dc1606f79bf5c30110ca.jpg" alt="Meme 2"></div>
+                <div class="meme-box"><img src="https://i.pinimg.com/736x/f6/af/f6/f6aff6a656b3c2db915fe7ead6d4635f.jpg" alt="Meme 3"></div>
+                <div class="meme-box"><img src="https://i.pinimg.com/736x/2c/98/24/2c982490d389c7ddd1b89fde5da7fd82.jpg" alt="Meme 4"></div>
+                <div class="meme-box"><img src="https://i.pinimg.com/736x/47/92/a0/4792a0565b084bdc2119f6c5cde3598e.jpg" alt="Meme 5"></div>
+                <div class="meme-box"><img src="https://i.pinimg.com/736x/f7/8b/b2/f78bb295bbf09b2d02536ccf89e8b594.jpg" alt="Meme 6"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>My Promises To You 💝</h2>
+        <div class="promises">
+            <div class="promise-item">💕 I promise to never sleep on a fight again. I genuinely mean it and I am not breaking this promise.</div>
+            <div class="promise-item">💕 I promise to listen to you better and understand your point of view.</div>
+            <div class="promise-item">💕 I promise to think before I speak, especially when we're arguing.</div>
+            <div class="promise-item">💕 I promise to always fix your hair when it falls on your face.</div>
+            <div class="promise-item">💕 I promise to keep getting you lilies because they're your favorite.</div>
+            <div class="promise-item">💕 I promise to make you feel loved and special, today and always.</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Click These! 👇</h2>
+        <button class="fun-button" onclick="showMessage1()">Miss me?</button>
+        <button class="fun-button" onclick="showMessage2()">Need a hug?</button>
+        <button class="fun-button" onclick="showMessage3()">Want a compliment?</button>
+        <button class="fun-button kiss-btn" onclick="sendKiss()">Send Virtual Kiss 💋</button>
+    </div>
+
+    <div class="final-message">
+        <div class="big-heart">💕</div>
+        <h2 style="margin: 30px 0;">Before You Go...</h2>
+        <div class="letter-box" style="max-width: 700px; text-align: left;">
+            <p>Hey, I guess you're about to reach the end of this little gift I made for you. I would have done more, but because of these exams, I'm not able to do much, and I hope you liked that lego set and bouquet.</p>
+            <p>Look, I know we had that fight and I said some stupid things, but I really want to say that I am sorry and I am not gonna do it again. I really don't know why I said all of that stuff when I didn't mean it at all. No, you're not like those stupid misogynistic, sexist, and chauvinistic men, and I should have never really compared you to them. I really do not think before what I say, and I have made a promise to you in the promise section of this website that I am gonna think before what I say.</p>
+            <p>I did feel bad when you said that I didn't love you and stuff like that, but then I started thinking about how bad you must have felt when I said all of that stuff, and I am gonna say it again, but I am really really sorry and I will never do this again. Just know I really love you sooo much, and there is no other person I'd rather be with my entire life than you. You genuinely make me sooo happy, and I am sorry that I was not able to do the same, but from now on I will try my best to make you smile every day and not fight with you at all. And even if we fight, I will not sleep without solving it.</p>
+            <p>You have truly become my everything, Krandasi, and I get scared even at the thought of losing you, so I'm gonna improve myself and learn from my mistakes. I know I have done this before and should have learned from my mistakes then only, but I didn't, and I guess that was my biggest mistake. But now I am gonna fix my biggest mistake and learn from my past mistakes.</p>
+            <p>That day you asked me why I loved you... I love you for the person you are, how kind you are, how you love children, how you smile at every kid we see in the elevator, mall, etc., how you try and fix the fights even if it's you who is pissed off. In reality, I am trying to be like you, Krandasi, and I am not saying this just to please you or anything. You're genuinely a great person, and in the future when we have kids, I would love them to be like you, brave and not afraid to stand up for themselves.</p>
+            <p>I really really love you, Jannu, and I am seriously very lucky to have you.</p>
+            <p style="font-size: 1.5rem; margin-top: 30px; text-align: center;">
+                Happy Valentine's Day, my love! 💕<br>
+                Mwahhh!! 💋<br>
+                Forever Yours ❤️<br>
+                Your Jannu
+            </p>
+        </div>
+        <p style="margin-top: 40px; opacity: 0.8; font-family: 'Poppins', sans-serif;">
+            Made with ❤️ at 3 AM<br>
+            For the most amazing girl in the world
+        </p>
+    </div>
+
+    <script>
+        const vinylSongs = [
+            {
+                id: 'darkhaast',
+                title: 'Darkhaast',
+                artist: 'Mithoon, Arijit Singh',
+                memory: '"We both love this song"',
+                audioUrl: 'https://raw.githubusercontent.com/darshowo/kranu-valentine/main/darkhaast.mp3',
+                coverUrl: 'https://raw.githubusercontent.com/darshowo/kranu-valentine/main/darkhaast-cover.jpg',
+                lyrics: [
+                    { time: 0, text: '♪ Music ♪', type: 'interlude' },
+                    { time: 9, text: 'Iss qadar tu mujhe pyaar kar' },
+                    { time: 16, text: 'Jise kabhi na main sakoon phir bhula' },
+                    { time: 26, text: 'Zindagi layi humein yahan' },
+                    { time: 33, text: 'Koi iraada toh raha hoga bhala' },
+                    { time: 42, text: 'Ki darkhaast hai yeh' },
+                    { time: 45, text: 'Jo aayi raat hai yeh' },
+                    { time: 51, text: 'Tu meri bahon mein duniya bhula de' },
+                    { time: 59, text: 'Jo ab lamhaat hai yeh' },
+                    { time: 63, text: 'Bade hi khaas hai yeh' },
+                    { time: 68, text: 'Tu meri bahon mein duniya bhula de' },
+                    { time: 77, text: '♪ Music ♪', type: 'interlude' },
+                    { time: 93, text: 'Ki darkhaast hai yeh' },
+                    { time: 97, text: 'Jo aayi raat hai yeh' },
+                    { time: 103, text: 'Tu meri bahon mein duniya bhula de' },
+                    { time: 110, text: 'Jo ab lamhaat hai yeh' },
+                    { time: 114, text: 'Bade hi khaas hai yeh' },
+                    { time: 120, text: 'Tu meri bahon mein duniya bhula de' },
+                    { time: 129, text: '♪ Music ♪', type: 'interlude' },
+                    { time: 145, text: 'Raahon mein mere sath chal tu' },
+                    { time: 150, text: 'Thaame mera hath chal tu' },
+                    { time: 154, text: 'Waqt jitna bhi ho haasil' },
+                    { time: 159, text: 'Sara mere naam kar tu' },
+                    { time: 163, text: 'Waqt jitna bhi ho haasil' },
+                    { time: 168, text: 'Sara mere naam kar tu' },
+                    { time: 172, text: 'Ke armaan hai yeh' },
+                    { time: 176, text: 'Guzaarish jaan hai yeh' },
+                    { time: 182, text: 'Tu meri baahon mein duniya bhula de' },
+                    { time: 190, text: 'Jo ab lamhaat hai yeh' },
+                    { time: 199, text: 'Tu meri baahon mein duniya bhula de' },
+                    { time: 209, text: '♪ Music ♪', type: 'interlude' },
+                    { time: 225, text: 'Lamz jismo pe aise sajaaye' },
+                    { time: 230, text: 'Baarishon se bhi wo dhul na paaye' },
+                    { time: 233, text: 'Tu meri baahon mein duniya bhula de' },
+                    { time: 242, text: 'Ho naksh lamhon pe aise banaye' },
+                    { time: 246, text: 'Muddaton se bhi woh mit na paaye' },
+                    { time: 251, text: 'Tu meri baahon mein duniya bhula de' },
+                    { time: 259, text: '💕 Tujhse toh hoon main yoon bahot mutassir 💕', type: 'favorite' },
+                    { time: 264, text: '💕 Par kya karu main hoon ek musafir 💕', type: 'favorite' },
+                    { time: 268, text: '💕 Kaisi khushi hai jisme nami hai 💕', type: 'favorite' },
+                    { time: 272, text: '💕 Jaane tu yeh ya jaane na oh.. 💕', type: 'favorite' },
+                    { time: 279, text: '💕 Jo jazbaat hai yeh 💕', type: 'favorite' },
+                    { time: 289, text: '💕 Tu meri bahon mein duniya bhula de 💕', type: 'favorite' },
+                    { time: 306, text: 'Tu meri bahon mein duniya bhula de' },
+                    { time: 315, text: 'Tu meri baahon mein duniya bhula de' },
+                    { time: 332, text: '♪ Music ♪', type: 'interlude' },
+                    { time: 349, text: 'Ki darkhaast hai yeh' },
+                    { time: 352, text: 'Jo aayi raat hai yeh' },
+                    { time: 358, text: 'Tu meri baahon mein duniya bhula de' },
+                    { time: 370, text: '♪ End ♪', type: 'interlude' }
+                ]
+            },
+            {
+                id: 'tuchahiye',
+                title: 'Tu Chahiye',
+                artist: 'Atif Aslam',
+                memory: '"I sang this to you in your parents\' car"',
+                audioUrl: 'https://raw.githubusercontent.com/darshowo/kranu-valentine/main/tuchahiye.mp3',
+                coverUrl: 'https://raw.githubusercontent.com/darshowo/kranu-valentine/main/tuchahiye-cover.jpg',
+                lyrics: [
+                    { time: 0, text: '♪ Music ♪', type: 'interlude' },
+                    { time: 15, text: 'Haal e dil ko sukoon chahiye' },
+                    { time: 22, text: 'Poori ik arzoo chahiye' },
+                    { time: 28, text: 'Jaise pehle kabhi' },
+                    { time: 32, text: 'Kuch bhi chaaha nahi' },
+                    { time: 36, text: 'Waise hi kyun chahiye' },
+                    { time: 50, text: 'Tu chahiye tu chahiye' },
+                    { time: 53, text: 'Shaam o subah tu chahiye' },
+                    { time: 60, text: 'Har martaba tu chahiye' },
+                    { time: 64, text: 'Jitni dafaa… zidd ho meri' },
+                    { time: 71, text: 'Utni dafaa… haan tu chahiye' },
+                    { time: 78, text: '♪ Music ♪', type: 'interlude' },
+                    { time: 118, text: 'Koi, aur dooja, kyun mujhe' },
+                    { time: 123, text: 'Na tere siva chahiye' },
+                    { time: 166, text: 'Tu chahiye tu chahiye' },
+                    { time: 177, text: 'Har martaba tu chahiye' },
+                    { time: 181, text: 'Jitni dafaa… zidd ho meri' },
+                    { time: 188, text: 'Utni dafaa… haan tu chahiye' },
+                    { time: 240, text: '♪ End ♪', type: 'interlude' }
+                ]
+            },
+            {
+                id: 'sahiba',
+                title: 'Sahiba',
+                artist: 'Arijit Singh',
+                memory: '"You love this song"',
+                audioUrl: 'https://raw.githubusercontent.com/darshowo/kranu-valentine/main/sahiba.mp3',
+                coverUrl: 'https://raw.githubusercontent.com/darshowo/kranu-valentine/main/sahiba-cover.jpg',
+                lyrics: [
+                    { time: 0, text: '♪ Music ♪', type: 'interlude' },
+                    { time: 10, text: 'Sahiba, aaye ghar kaahe na?' },
+                    { time: 14, text: 'Aise toh sataye na' },
+                    { time: 17, text: 'Dekhun tujhko, chain aata hai' },
+                    { time: 20, text: 'Sahiba, neendein-veendein aayein na' },
+                    { time: 24, text: 'Raatein kaati jaayein na' },
+                    { time: 26, text: 'Tera hi khayaal din-rain aata hai' },
+                    { time: 32, text: 'Sahiba, samundar meri aankhon mein reh gaye' },
+                    { time: 45, text: 'Jo waade kiye saare bas baaton mein reh gaye' },
+                    { time: 69, text: 'Mere sahiba, dil na kiraaye ka' },
+                    { time: 77, text: 'Sahiba, neendein-veendein aayein na' },
+                    { time: 84, text: 'Tera hi khayaal din-rain aata hai' },
+                    { time: 88, text: '♪ Music ♪', type: 'interlude' },
+                    { time: 158, text: 'Sahiba, neendein-veendein aayein na' },
+                    { time: 165, text: 'Tera hi khayaal din-rain aata hai' },
+                    { time: 180, text: '♪ End ♪', type: 'interlude' }
+                ]
+            },
+            {
+                id: 'samjhawan',
+                title: 'Samjhawan',
+                artist: 'Arijit Singh',
+                memory: '"I put my head on your shoulder when listening to this"',
+                audioUrl: 'https://raw.githubusercontent.com/darshowo/kranu-valentine/main/samjhawan.mp3',
+                coverUrl: 'https://raw.githubusercontent.com/darshowo/kranu-valentine/main/samjhawan-cover.jpg',
+                lyrics: [
+                    { time: 0, text: '♪ Music ♪', type: 'interlude' },
+                    { time: 36, text: 'Main Tainu Samjhawan Ki' },
+                    { time: 41, text: 'Na Tere Bina Lagda Jee' },
+                    { time: 54, text: 'Tu Ki Jaane Pyar Mera' },
+                    { time: 58, text: 'Main Karun Intezar Tera' },
+                    { time: 66, text: 'Main Tainu Samjhawan Ki' },
+                    { time: 72, text: 'Na Tere Bina Lagda Jee' },
+                    { time: 97, text: '♪ Music ♪', type: 'interlude' },
+                    { time: 121, text: 'Mere Dil Ne Chun Laiyaa Ne' },
+                    { time: 158, text: 'Main Tainu Samjhawan Ki' },
+                    { time: 164, text: 'Na Tere Bina Lagda Jee' },
+                    { time: 204, text: 'Tainu Chadd Ke Kitthe Jawan' },
+                    { time: 208, text: 'Tu Mera Parchhawan' },
+                    { time: 246, text: 'Main Tainu Samjhawan Ki' },
+                    { time: 249, text: 'Na Tere Bina Lagda Jee' },
+                    { time: 253, text: '♪ End ♪', type: 'interlude' }
+                ]
+            }
+        ];
+
+        let currentSongIndex = 0;
+        let isPlaying = false;
+        let audio = null;
+
+        document.addEventListener('DOMContentLoaded', function() {
+            audio = document.getElementById('audioPlayer');
+            audio.addEventListener('timeupdate', updateProgress);
+            audio.addEventListener('loadedmetadata', updateTotalTime);
+            audio.addEventListener('ended', nextSong);
+            audio.volume = 0.7;
+            loadSong(0);
+            initLadder();
+        });
+
+        function loadSong(index) {
+            currentSongIndex = index;
+            const song = vinylSongs[index];
+            audio.src = song.audioUrl;
+            document.getElementById('songTitle').textContent = song.title;
+            document.getElementById('songArtist').textContent = song.artist;
+            document.getElementById('songMemory').textContent = song.memory;
+            document.getElementById('albumArt').src = song.coverUrl;
+            document.querySelectorAll('.song-select-btn').forEach((btn, i) => {
+                btn.classList.toggle('active', i === index);
+            });
+            loadLyrics(song.lyrics);
+            document.getElementById('progressFill').style.width = '0%';
+            document.getElementById('currentTime').textContent = '0:00';
+            if (isPlaying) audio.play();
+        }
+
+        function loadLyrics(lyrics) {
+            const container = document.getElementById('lyricsContent');
+            if (!lyrics || lyrics.length === 0) {
+                container.innerHTML = '<p class="no-lyrics">No lyrics available 🎵</p>';
+                return;
+            }
+            container.innerHTML = lyrics.map((line, index) => `
+                <div class="lyric-line ${line.type || ''}" data-index="${index}" data-time="${line.time}" onclick="seekToLyric(${line.time})">
+                    ${line.text}
+                </div>
+            `).join('');
+        }
+
+        function togglePlay() {
+            if (isPlaying) pauseSong();
+            else playSong();
+        }
+
+        function playSong() {
+            audio.play();
+            isPlaying = true;
+            document.getElementById('playPauseBtn').textContent = '⏸️';
+            document.getElementById('vinylRecord').classList.add('spinning');
+            document.getElementById('vinylArm').classList.add('playing');
+        }
+
+        function pauseSong() {
+            audio.pause();
+            isPlaying = false;
+            document.getElementById('playPauseBtn').textContent = '▶️';
+            document.getElementById('vinylRecord').classList.remove('spinning');
+            document.getElementById('vinylArm').classList.remove('playing');
+        }
+
+        function nextSong() {
+            currentSongIndex = (currentSongIndex + 1) % vinylSongs.length;
+            loadSong(currentSongIndex);
+            if (isPlaying) playSong();
+        }
+
+        function prevSong() {
+            currentSongIndex = (currentSongIndex - 1 + vinylSongs.length) % vinylSongs.length;
+            loadSong(currentSongIndex);
+            if (isPlaying) playSong();
+        }
+
+        function updateProgress() {
+            const progress = (audio.currentTime / audio.duration) * 100;
+            document.getElementById('progressFill').style.width = progress + '%';
+            document.getElementById('currentTime').textContent = formatTime(audio.currentTime);
+            updateKaraokeLyrics(audio.currentTime);
+        }
+
+        function updateKaraokeLyrics(currentTime) {
+            const song = vinylSongs[currentSongIndex];
+            if (!song.lyrics) return;
+            const lyricLines = document.querySelectorAll('.lyric-line');
+            let activeIndex = -1;
+            for (let i = song.lyrics.length - 1; i >= 0; i--) {
+                if (currentTime >= song.lyrics[i].time) { activeIndex = i; break; }
+            }
+            lyricLines.forEach((line, index) => {
+                line.classList.remove('active', 'passed', 'upcoming');
+                if (index === activeIndex) { line.classList.add('active'); scrollToActiveLyric(line); }
+                else if (index < activeIndex) line.classList.add('passed');
+                else line.classList.add('upcoming');
+            });
+        }
+
+        function scrollToActiveLyric(element) {
+            const container = document.getElementById('lyricsContainer');
+            const scrollTop = element.offsetTop - container.offsetTop - (container.clientHeight / 2) + (element.clientHeight / 2);
+            container.scrollTo({ top: scrollTop, behavior: 'smooth' });
+        }
+
+        function seekToLyric(time) { audio.currentTime = time; if (!isPlaying) playSong(); }
+        function updateTotalTime() { document.getElementById('totalTime').textContent = formatTime(audio.duration); }
+        function seekTo(event) {
+            const progressBar = document.getElementById('progressBar');
+            const rect = progressBar.getBoundingClientRect();
+            audio.currentTime = ((event.clientX - rect.left) / rect.width) * audio.duration;
+        }
+        function changeVolume(value) { audio.volume = value; updateVolumeIcon(value); }
+        function toggleMute() {
+            if (audio.volume > 0) { audio.dataset.prevVolume = audio.volume; audio.volume = 0; document.getElementById('volumeSlider').value = 0; }
+            else { audio.volume = audio.dataset.prevVolume || 0.7; document.getElementById('volumeSlider').value = audio.volume; }
+            updateVolumeIcon(audio.volume);
+        }
+        function updateVolumeIcon(volume) {
+            const icon = document.getElementById('volumeIcon');
+            if (volume == 0) icon.textContent = '🔇';
+            else if (volume < 0.5) icon.textContent = '🔉';
+            else icon.textContent = '🔊';
+        }
+        function formatTime(seconds) {
+            if (isNaN(seconds)) return '0:00';
+            return `${Math.floor(seconds / 60)}:${Math.floor(seconds % 60).toString().padStart(2, '0')}`;
+        }
+
+        // LADDER & DOG
+        let isDragging = false;
+        let dragStartY = 0;
+        let scrollStartY = 0;
+        let petTimer = null;
+        let clickTimes = [];
+        let justPetted = false;
+
+        function initLadder() {
+            const ladderRungs = document.getElementById('ladderRungs');
+            ladderRungs.innerHTML = '';
+            const rungSpacing = 60;
+            const rungCount = Math.ceil(window.innerHeight / rungSpacing) + 2;
+            for (let i = 0; i < rungCount; i++) {
+                const rung = document.createElement('div');
+                rung.className = 'rung';
+                rung.style.top = (i * rungSpacing + 30) + 'px';
+                ladderRungs.appendChild(rung);
+            }
+        }
+
+        function updateDogPosition() {
+            if (isDragging) return;
+            const dog = document.getElementById('dogCharacter');
+            if (!dog) return;
+            const scrollY = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            if (docHeight <= 0) return;
+            const scrollPercent = Math.min(1, scrollY / docHeight);
+            const maxDogTravel = window.innerHeight - 120;
+            dog.style.top = (scrollPercent * maxDogTravel + 50) + 'px';
+        }
+
+        window.addEventListener('scroll', updateDogPosition);
+
+        const dog = document.getElementById('dogCharacter');
+
+        dog.addEventListener('mousedown', function(e) {
+            e.preventDefault();
+            isDragging = true;
+            dragStartY = e.clientY;
+            scrollStartY = window.scrollY;
+            dog.classList.add('dragging');
+            showDogSpeechText('Wheee! 🎢');
+        });
+
+        document.addEventListener('mousemove', function(e) {
+            if (!isDragging) return;
+            e.preventDefault();
+            const deltaY = e.clientY - dragStartY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            // FIXED: Pull down = scroll down (positive deltaY = positive scroll)
+            const newScroll = Math.max(0, Math.min(docHeight, scrollStartY + deltaY * 2));
+            window.scrollTo(0, newScroll);
+            // Update dog position within viewport
+            const scrollPercent = newScroll / docHeight;
+            const maxDogTravel = window.innerHeight - 120;
+            dog.style.top = (scrollPercent * maxDogTravel + 50) + 'px';
+        });
+
+        document.addEventListener('mouseup', function() {
+            if (isDragging) {
+                isDragging = false;
+                dog.classList.remove('dragging');
+                if (!justPetted) hideDogSpeech();
+            }
+        });
+
+        // Touch support
+        dog.addEventListener('touchstart', function(e) {
+            e.preventDefault();
+            isDragging = true;
+            dragStartY = e.touches[0].clientY;
+            scrollStartY = window.scrollY;
+            dog.classList.add('dragging');
+            showDogSpeechText('Wheee! 🎢');
+        }, { passive: false });
+
+        document.addEventListener('touchmove', function(e) {
+            if (!isDragging) return;
+            e.preventDefault();
+            const deltaY = e.touches[0].clientY - dragStartY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const newScroll = Math.max(0, Math.min(docHeight, scrollStartY + deltaY * 2));
+            window.scrollTo(0, newScroll);
+            const scrollPercent = newScroll / docHeight;
+            const maxDogTravel = window.innerHeight - 120;
+            dog.style.top = (scrollPercent * maxDogTravel + 50) + 'px';
+        }, { passive: false });
+
+        document.addEventListener('touchend', function() {
+            if (isDragging) {
+                isDragging = false;
+                dog.classList.remove('dragging');
+                if (!justPetted) hideDogSpeech();
+            }
+        });
+
+        // Pet detection
+        let clickStartTime = 0;
+        let clickStartPos = { x: 0, y: 0 };
+
+        dog.addEventListener('mousedown', function(e) {
+            clickStartTime = Date.now();
+            clickStartPos = { x: e.clientX, y: e.clientY };
+        });
+
+        dog.addEventListener('click', function(e) {
+            const clickDuration = Date.now() - clickStartTime;
+            const moveDistance = Math.sqrt(Math.pow(e.clientX - clickStartPos.x, 2) + Math.pow(e.clientY - clickStartPos.y, 2));
+            if (clickDuration < 300 && moveDistance < 15) {
+                petDog();
+            }
+        });
+
+        function petDog() {
+            justPetted = true;
+            const now = Date.now();
+            clickTimes.push(now);
+            clickTimes = clickTimes.filter(t => now - t < 2000);
+            const clicksPerSecond = clickTimes.length / 2;
+            
+            clearTimeout(petTimer);
+            
+            if (clicksPerSecond > 5) {
+                setDogMood('sad');
+                showDogSpeechText('Too fast! 😢');
+                showDogExpression('😢');
+            } else if (clicksPerSecond > 3) {
+                setDogMood('excited');
+                showDogSpeechText('Woof woof!! 🐾');
+                showDogExpression('😆');
+            } else {
+                setDogMood('love');
+                showDogHearts();
+                showDogBlush();
+                showDogSpeechText('I love you! ❤️');
+                showDogExpression('🥰');
+            }
+            
+            petTimer = setTimeout(() => {
+                setDogMood('normal');
+                hideDogExtras();
+                justPetted = false;
+            }, 4000);
+        }
+
+        function setDogMood(mood) {
+            const dogChar = document.getElementById('dogCharacter');
+            const emoji = document.getElementById('dogEmoji');
+            dogChar.classList.remove('happy', 'excited', 'sad', 'love');
+            if (mood !== 'normal') dogChar.classList.add(mood);
+            emoji.textContent = (mood === 'happy' || mood === 'excited' || mood === 'love') ? '🐶' : '🐕';
+        }
+
+        function showDogSpeechText(text) {
+            const speech = document.getElementById('dogSpeech');
+            speech.textContent = text;
+            speech.classList.add('show');
+        }
+
+        function hideDogSpeech() { document.getElementById('dogSpeech').classList.remove('show'); }
+
+        function showDogExpression(expr) {
+            const expression = document.getElementById('dogExpression');
+            expression.textContent = expr;
+            expression.classList.add('show');
+        }
+
+        function showDogHearts() {
+            const hearts = document.getElementById('dogHearts');
+            const newHearts = hearts.cloneNode(true);
+            hearts.parentNode.replaceChild(newHearts, hearts);
+            newHearts.classList.add('show');
+        }
+
+        function showDogBlush() { document.getElementById('dogBlush').classList.add('show'); }
+
+        function hideDogExtras() {
+            document.getElementById('dogHearts')?.classList.remove('show');
+            document.getElementById('dogBlush')?.classList.remove('show');
+            document.getElementById('dogExpression')?.classList.remove('show');
+            hideDogSpeech();
+        }
+
+        // DARK MODE
+        function toggleTheme() {
+            const html = document.documentElement;
+            const icon = document.getElementById('themeIcon');
+            const label = document.getElementById('themeLabel');
+            if (html.getAttribute('data-theme') === 'dark') {
+                html.removeAttribute('data-theme');
+                icon.textContent = '🌙';
+                label.textContent = 'Dark Mode';
+                localStorage.setItem('theme', 'light');
+            } else {
+                html.setAttribute('data-theme', 'dark');
+                icon.textContent = '☀️';
+                label.textContent = 'Light Mode';
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+        
+        (function() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                document.getElementById('themeIcon').textContent = '☀️';
+                document.getElementById('themeLabel').textContent = 'Light Mode';
+            }
+        })();
+
+        // BACKGROUND
+        (function() {
+            const bgEl = document.getElementById('bgLove');
+            if (bgEl) bgEl.textContent = 'I love you ❤️ '.repeat(1500);
+        })();
+
+        // COPY PROTECTION
+        document.addEventListener('contextmenu', e => e.preventDefault());
+        document.addEventListener('copy', e => { e.preventDefault(); alert('Sorry! Copying is disabled ❤️'); });
+        document.addEventListener('cut', e => e.preventDefault());
+        document.addEventListener('keydown', e => {
+            if ((e.ctrlKey || e.metaKey) && ['c','x','v','p','s','u'].includes(e.key)) {
+                e.preventDefault();
+                alert('Keyboard shortcuts are disabled ❤️');
+            }
+            if (e.key === 'F12' || ((e.ctrlKey || e.metaKey) && e.shiftKey && ['I','J','C'].includes(e.key))) e.preventDefault();
+        });
+
+        // COUNTDOWN
+        function updateCountdown() {
+            const end = new Date('2026-03-27T15:00:00');
+            const diff = end - new Date();
+            if (diff > 0) {
+                document.getElementById('days').textContent = Math.floor(diff / 86400000).toString().padStart(2, '0');
+                document.getElementById('hours').textContent = Math.floor((diff % 86400000) / 3600000).toString().padStart(2, '0');
+                document.getElementById('minutes').textContent = Math.floor((diff % 3600000) / 60000).toString().padStart(2, '0');
+                document.getElementById('seconds').textContent = Math.floor((diff % 60000) / 1000).toString().padStart(2, '0');
+            }
+        }
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // INTERACTIVE BUTTONS
+        function showMessage1() { alert('I miss you too Kranu! Can\'t stop thinking about those beautiful eyes 😍'); }
+        function showMessage2() {
+            alert('🤗 Sending you the biggest virtual hug...');
+            setTimeout(() => {
+                document.getElementById('hugOverlay').style.display = 'flex';
+                setTimeout(() => document.getElementById('hugOverlay').style.display = 'none', 4000);
+            }, 500);
+        }
+        function showMessage3() {
+            const compliments = [
+                'Those eyes of yours could make me forget everything ❤️',
+                'How are you even real? You\'re too perfect.',
+                'You\'re truly my lucky charm ❤️❤️❤️',
+                'Just one smile from you can make my day ✨',
+                'You look extra beautiful today, Valentine! 💕',
+                'I\'m so lucky you said yes 🥺'
+            ];
+            alert(compliments[Math.floor(Math.random() * compliments.length)]);
+        }
+        function sendKiss() {
+            const overlay = document.getElementById('kissOverlay');
+            overlay.style.display = 'flex';
+            for (let i = 0; i < 15; i++) {
+                setTimeout(() => {
+                    const kiss = document.createElement('div');
+                    kiss.innerHTML = '💋';
+                    kiss.style.cssText = `position:fixed;font-size:${Math.random()*30+20}px;left:${Math.random()*100}%;top:100%;z-index:10000;pointer-events:none;animation:floatUpKiss 3s ease-out forwards;`;
+                    document.body.appendChild(kiss);
+                    setTimeout(() => kiss.remove(), 3000);
+                }, i * 200);
+            }
+            setTimeout(() => overlay.style.display = 'none', 4000);
+        }
+
+        // FLOATING HEARTS
+        setInterval(() => {
+            const heart = document.createElement('div');
+            heart.className = 'heart';
+            heart.style.left = Math.random() * 100 + '%';
+            heart.style.animationDuration = Math.random() * 3 + 7 + 's';
+            heart.innerHTML = ['❤️', '💕', '💖', '💗', '💝'][Math.floor(Math.random() * 5)];
+            document.body.appendChild(heart);
+            setTimeout(() => heart.remove(), 10000);
+        }, 3000);
+
+        // EASTER EGGS
+        setTimeout(() => { alert('Still reading? 🥺\n\nI love you so much Kranu ❤️'); }, 120000);
+        const today = new Date();
+        if (today.getMonth() === 1 && today.getDate() === 14) {
+            setTimeout(() => { alert('💕 HAPPY VALENTINE\'S DAY, MY LOVE! 💕\n\nI love you, Kranu! ❤️'); }, 3000);
+        }
+    </script>
+</body>
+</html>
